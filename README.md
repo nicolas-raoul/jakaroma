@@ -9,4 +9,4 @@ Roppongi Hiruzu Mori Tawa-
 
 ```
 
-Based on [Kuromoji](https://github.com/atilika/kuromoji).
+Powered by [Kuromoji](https://github.com/atilika/kuromoji).
