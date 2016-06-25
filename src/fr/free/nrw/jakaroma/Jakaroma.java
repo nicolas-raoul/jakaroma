@@ -49,10 +49,12 @@ public class Jakaroma {
                     else {
                         // Convert katakana to romaji
                         String romaji = kanaToRomaji.convert(token.getAllFeaturesArray()[8]);
+                        
+                        // Convert foreign katakana words to uppercase
+                        if(token.getSurface().equals(token.getPronunciation()))
+                            romaji = romaji.toUpperCase();
 
-                        // Capitalize
-                        buffer.append(romaji.substring(0, 1).toUpperCase());
-                        buffer.append(romaji.substring(1));
+                        buffer.append(romaji);
                     }
             }
             buffer.append(" ");
