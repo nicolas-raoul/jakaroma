@@ -28,6 +28,7 @@ public class Jakaroma {
         // Display romaji
         StringBuffer buffer = new StringBuffer();
         KanaToRomaji kanaToRomaji = new KanaToRomaji();
+        String lastTokenToMerge = "";
         for (Token token : tokens) {
             String type = token.getAllFeaturesArray()[1];
             if (DEBUG) {
@@ -40,6 +41,8 @@ public class Jakaroma {
                 case "アルファベット": // Example: ｂ (double-width alphabet)
                     buffer.append(token.getSurface());
                     break;
+                case "空白": // whitespaces
+                    continue; // skip multiple whitespaces
                 default:
                     // kanji has been converted to katakana
                     String lastFeature = token.getAllFeaturesArray()[8];
@@ -49,6 +52,17 @@ public class Jakaroma {
                     else {
                         // Convert katakana to romaji
                         String romaji = kanaToRomaji.convert(token.getAllFeaturesArray()[8]);
+                        
+                        // workaround for soukon
+                        if ( lastFeature.toString().endsWith("ッ") )
+                        {
+                            lastTokenToMerge = lastFeature;
+                            continue;
+                        }
+                        else
+                        {
+                            lastTokenToMerge = "";
+                        }
                         
                         // Convert foreign katakana words to uppercase
                         if(token.getSurface().equals(token.getPronunciation()))
