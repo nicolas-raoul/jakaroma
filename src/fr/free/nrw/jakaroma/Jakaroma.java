@@ -7,7 +7,8 @@ import java.util.List;
 public class Jakaroma {
 
     private static boolean DEBUG = false;
-
+    private static boolean CAPITALIZE_WORDS = true;
+    
     public static void main(String[] args) {
 
         if (args.length == 0) {
@@ -64,11 +65,15 @@ public class Jakaroma {
                             lastTokenToMerge = "";
                         }
                         
-                        // Convert foreign katakana words to uppercase
-                        if(token.getSurface().equals(token.getPronunciation()))
-                            romaji = romaji.toUpperCase();
-
-                        buffer.append(romaji);
+                        if ( CAPITALIZE_WORDS == true ) {
+                            buffer.append(romaji.substring(0, 1).toUpperCase());
+                            buffer.append(romaji.substring(1));
+                        } else {
+                            // Convert foreign katakana words to uppercase
+                            if(token.getSurface().equals(token.getPronunciation())) // detect katakana
+                                romaji = romaji.toUpperCase();
+                            buffer.append(romaji);
+                        }
                     }
             }
             buffer.append(" ");
