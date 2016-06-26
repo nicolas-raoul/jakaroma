@@ -11,13 +11,19 @@ public class Jakaroma {
     
     public static void main(String[] args) {
 
-        if (args.length == 0) {
-            System.out.println("Pass Japanese string as argument");
-            return;
+        String input = "";
+
+        if (args.length == 0 || args[0].length() == 0 ) {
+            System.err.println("jakaroma warn: no argument passed, reading stdin...");
+            System.err.flush();
+            java.util.Scanner s = new java.util.Scanner(System.in).useDelimiter("\\A");
+            input = ( s.hasNext() ? s.next() : "" );
+        } else {
+            input = args[0];
         }
 
         Tokenizer tokenizer = new Tokenizer() ;
-        List<Token> tokens = tokenizer.tokenize(args[0]);
+        List<Token> tokens = tokenizer.tokenize(input);
 
         if (DEBUG) {
             // Display tokens
@@ -31,6 +37,14 @@ public class Jakaroma {
         KanaToRomaji kanaToRomaji = new KanaToRomaji();
         String lastTokenToMerge = "";
         for (Token token : tokens) {
+            // append all special symbols unaltered (without extra whitespaces)
+            if( token.getAllFeaturesArray()[0].equals("記号") ||
+                token.getAllFeaturesArray()[1].equals("サ変接続" )) {
+                if( token.getSurface().equals(",") || token.getSurface().equals(".") || token.getSurface().equals(")"))
+                    buffer.setLength(buffer.length() - 1); // remove the previous space
+                buffer.append(token.getSurface());
+                continue;
+            }
             String type = token.getAllFeaturesArray()[1];
             if (DEBUG) {
                 System.out.println("Type: " + type);
@@ -42,8 +56,6 @@ public class Jakaroma {
                 case "アルファベット": // Example: ｂ (double-width alphabet)
                     buffer.append(token.getSurface());
                     break;
-                case "空白": // whitespaces
-                    continue; // skip multiple whitespaces
                 default:
                     // kanji has been converted to katakana
                     String lastFeature = token.getAllFeaturesArray()[8];
