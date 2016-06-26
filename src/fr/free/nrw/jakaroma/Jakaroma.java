@@ -37,25 +37,22 @@ public class Jakaroma {
         KanaToRomaji kanaToRomaji = new KanaToRomaji();
         String lastTokenToMerge = "";
         for (Token token : tokens) {
-            // append all special symbols unaltered (without extra whitespaces)
-            if( token.getAllFeaturesArray()[0].equals("記号") ||
-                token.getAllFeaturesArray()[1].equals("サ変接続" )) {
-                if( token.getSurface().equals(",") || token.getSurface().equals(".") || token.getSurface().equals(")"))
-                    buffer.setLength(buffer.length() - 1); // remove the previous space
-                buffer.append(token.getSurface());
-                continue;
-            }
             String type = token.getAllFeaturesArray()[1];
             if (DEBUG) {
                 System.out.println("Type: " + type);
             }
+            // keep newlines unaltered
+            if( token.getAllFeaturesArray()[0].equals("記号"))  {
+                buffer.append(token.getSurface());
+                continue;
+            }
             switch(token.getAllFeaturesArray()[1]) {
                 case "数": // Example: 4
-                    buffer.append(token.getSurface());
-                    break;
                 case "アルファベット": // Example: ｂ (double-width alphabet)
+                case "サ変接続": // Example: , (connection symbols)
                     buffer.append(token.getSurface());
-                    break;
+                    //break;
+                    continue; // avoid extra whitespace after symbols
                 default:
                     // kanji has been converted to katakana
                     String lastFeature = token.getAllFeaturesArray()[8];
