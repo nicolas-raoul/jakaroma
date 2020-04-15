@@ -12,16 +12,19 @@ public class Jakaroma_test {
 				//"もらった",  DONE
 				//"誕生", 
 
-				String[] testInput = { 	"もらった",
+				String[] testInput = {  "もらった",
+										"ホッ",
 										//"誕生日",
 										"すごっ",
-										//"ピッザ"
+										"ピッザ"
 				};
 				for ( String str: testInput) {
 					String[] singleArray = { str };
-					Jakaroma.main(  singleArray );
+					Jakaroma.main( singleArray );
 				}
 			}
 		}
 	}
 }
+
+
