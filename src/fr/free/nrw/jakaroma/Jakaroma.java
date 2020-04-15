@@ -129,7 +129,7 @@ public class Jakaroma {
 	    System.out.println(buffer);
 	    if (DEBUG) System.out.println("----------------------------");
 	    }
-
+ 
 	public static String smallTsuRomaji ( Token token, Token nextToken) {
 		System.out.println("nexToken:" + nextToken.getSurface());
 	    KanaToRomaji kanaToRomaji = new KanaToRomaji();  
