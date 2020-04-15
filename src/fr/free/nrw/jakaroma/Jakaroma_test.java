@@ -26,4 +26,3 @@ public class Jakaroma_test {
 		}
 	}
 }
-

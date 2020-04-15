@@ -131,7 +131,6 @@ public class Jakaroma {
 	    }
  
 	public static String smallTsuRomaji ( Token token, Token nextToken) {
-		System.out.println("nexToken:" + nextToken.getSurface());
 	    KanaToRomaji kanaToRomaji = new KanaToRomaji();  
 		String romaji = "";
 		String nextRomaji = kanaToRomaji.convert(getKatakana(nextToken));
@@ -139,7 +138,7 @@ public class Jakaroma {
 		romaji = currentRomaji + nextRomaji.substring(0,1) + nextRomaji;
 		return romaji;
 	}
-	
+
 	public static String kuromojiFailedConvert( Token token ) {
 	    KanaToRomaji kanaToRomaji = new KanaToRomaji();  
 	    StringBuffer buffer = new StringBuffer();
