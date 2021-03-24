@@ -1,146 +1,155 @@
 package fr.free.nrw.jakaroma;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class KanaToRomaji {
 
-    Map<String, String> m = new HashMap<>();
+    private static final Map<String, String> dictionary;
 
-    public KanaToRomaji() {
-        m.put("ア", "a");
-        m.put("イ", "i");
-        m.put("ウ", "u");
-        m.put("エ", "e");
-        m.put("オ", "o");
-        m.put("カ", "ka");
-        m.put("キ", "ki");
-        m.put("ク", "ku");
-        m.put("ケ", "ke");
-        m.put("コ", "ko");
-        m.put("サ", "sa");
-        m.put("シ", "shi");
-        m.put("ス", "su");
-        m.put("セ", "se");
-        m.put("ソ", "so");
-        m.put("タ", "ta");
-        m.put("チ", "chi");
-        m.put("ツ", "tsu");
-        m.put("テ", "te");
-        m.put("ト", "to");
-        m.put("ナ", "na");
-        m.put("ニ", "ni");
-        m.put("ヌ", "nu");
-        m.put("ネ", "ne");
-        m.put("ノ", "no");
-        m.put("ハ", "ha");
-        m.put("ヒ", "hi");
-        m.put("フ", "fu");
-        m.put("ヘ", "he");
-        m.put("ホ", "ho");
-        m.put("マ", "ma");
-        m.put("ミ", "mi");
-        m.put("ム", "mu");
-        m.put("メ", "me");
-        m.put("モ", "mo");
-        m.put("ヤ", "ya");
-        m.put("ユ", "yu");
-        m.put("ヨ", "yo");
-        m.put("ラ", "ra");
-        m.put("リ", "ri");
-        m.put("ル", "ru");
-        m.put("レ", "re");
-        m.put("ロ", "ro");
-        m.put("ワ", "wa");
-        m.put("ヲ", "wo");
-        m.put("ン", "n");
-        m.put("ガ", "ga");
-        m.put("ギ", "gi");
-        m.put("グ", "gu");
-        m.put("ゲ", "ge");
-        m.put("ゴ", "go");
-        m.put("ザ", "za");
-        m.put("ジ", "ji");
-        m.put("ズ", "zu");
-        m.put("ゼ", "ze");
-        m.put("ゾ", "zo");
-        m.put("ダ", "da");
-        m.put("ヂ", "ji");
-        m.put("ヅ", "zu");
-        m.put("デ", "de");
-        m.put("ド", "do");
-        m.put("バ", "ba");
-        m.put("ビ", "bi");
-        m.put("ブ", "bu");
-        m.put("ベ", "be");
-        m.put("ボ", "bo");
-        m.put("パ", "pa");
-        m.put("ピ", "pi");
-        m.put("プ", "pu");
-        m.put("ペ", "pe");
-        m.put("ポ", "po");
-        m.put("キャ", "kya");
-        m.put("キュ", "kyu");
-        m.put("キョ", "kyo");
-        m.put("シャ", "sha");
-        m.put("シュ", "shu");
-        m.put("ショ", "sho");
-        m.put("チャ", "cha");
-        m.put("チュ", "chu");
-        m.put("チョ", "cho");
-        m.put("ニャ", "nya");
-        m.put("ニュ", "nyu");
-        m.put("ニョ", "nyo");
-        m.put("ヒャ", "hya");
-        m.put("ヒュ", "hyu");
-        m.put("ヒョ", "hyo");
-        m.put("リャ", "rya");
-        m.put("リュ", "ryu");
-        m.put("リョ", "ryo");
-        m.put("ギャ", "gya");
-        m.put("ギュ", "gyu");
-        m.put("ギョ", "gyo");
-        m.put("ジャ", "ja");
-        m.put("ジュ", "ju");
-        m.put("ジョ", "jo");
-        m.put("ティ", "ti");
-        m.put("ディ", "di");
-        m.put("ツィ", "tsi");
-        m.put("ヂャ", "dya");
-        m.put("ヂュ", "dyu");
-        m.put("ヂョ", "dyo");
-        m.put("ビャ", "bya");
-        m.put("ビュ", "byu");
-        m.put("ビョ", "byo");
-        m.put("ピャ", "pya");
-        m.put("ピュ", "pyu");
-        m.put("ピョ", "pyo");
-        m.put("ー", "-");
+    static {
+        Map<String, String> aMap = new HashMap<>();
+
+        aMap.put("ア", "a");
+        aMap.put("イ", "i");
+        aMap.put("ウ", "u");
+        aMap.put("エ", "e");
+        aMap.put("オ", "o");
+        aMap.put("カ", "ka");
+        aMap.put("キ", "ki");
+        aMap.put("ク", "ku");
+        aMap.put("ケ", "ke");
+        aMap.put("コ", "ko");
+        aMap.put("サ", "sa");
+        aMap.put("シ", "shi");
+        aMap.put("ス", "su");
+        aMap.put("セ", "se");
+        aMap.put("ソ", "so");
+        aMap.put("タ", "ta");
+        aMap.put("チ", "chi");
+        aMap.put("ツ", "tsu");
+        aMap.put("テ", "te");
+        aMap.put("ト", "to");
+        aMap.put("ナ", "na");
+        aMap.put("ニ", "ni");
+        aMap.put("ヌ", "nu");
+        aMap.put("ネ", "ne");
+        aMap.put("ノ", "no");
+        aMap.put("ハ", "ha");
+        aMap.put("ヒ", "hi");
+        aMap.put("フ", "fu");
+        aMap.put("ヘ", "he");
+        aMap.put("ホ", "ho");
+        aMap.put("マ", "ma");
+        aMap.put("ミ", "mi");
+        aMap.put("ム", "mu");
+        aMap.put("メ", "me");
+        aMap.put("モ", "mo");
+        aMap.put("ヤ", "ya");
+        aMap.put("ユ", "yu");
+        aMap.put("ヨ", "yo");
+        aMap.put("ラ", "ra");
+        aMap.put("リ", "ri");
+        aMap.put("ル", "ru");
+        aMap.put("レ", "re");
+        aMap.put("ロ", "ro");
+        aMap.put("ワ", "wa");
+        aMap.put("ヲ", "wo");
+        aMap.put("ン", "n");
+        aMap.put("ガ", "ga");
+        aMap.put("ギ", "gi");
+        aMap.put("グ", "gu");
+        aMap.put("ゲ", "ge");
+        aMap.put("ゴ", "go");
+        aMap.put("ザ", "za");
+        aMap.put("ジ", "ji");
+        aMap.put("ズ", "zu");
+        aMap.put("ゼ", "ze");
+        aMap.put("ゾ", "zo");
+        aMap.put("ダ", "da");
+        aMap.put("ヂ", "ji");
+        aMap.put("ヅ", "zu");
+        aMap.put("デ", "de");
+        aMap.put("ド", "do");
+        aMap.put("バ", "ba");
+        aMap.put("ビ", "bi");
+        aMap.put("ブ", "bu");
+        aMap.put("ベ", "be");
+        aMap.put("ボ", "bo");
+        aMap.put("パ", "pa");
+        aMap.put("ピ", "pi");
+        aMap.put("プ", "pu");
+        aMap.put("ペ", "pe");
+        aMap.put("ポ", "po");
+        aMap.put("キャ", "kya");
+        aMap.put("キュ", "kyu");
+        aMap.put("キョ", "kyo");
+        aMap.put("シャ", "sha");
+        aMap.put("シュ", "shu");
+        aMap.put("ショ", "sho");
+        aMap.put("チャ", "cha");
+        aMap.put("チュ", "chu");
+        aMap.put("チョ", "cho");
+        aMap.put("ニャ", "nya");
+        aMap.put("ニュ", "nyu");
+        aMap.put("ニョ", "nyo");
+        aMap.put("ヒャ", "hya");
+        aMap.put("ヒュ", "hyu");
+        aMap.put("ヒョ", "hyo");
+        aMap.put("リャ", "rya");
+        aMap.put("リュ", "ryu");
+        aMap.put("リョ", "ryo");
+        aMap.put("ギャ", "gya");
+        aMap.put("ギュ", "gyu");
+        aMap.put("ギョ", "gyo");
+        aMap.put("ジャ", "ja");
+        aMap.put("ジュ", "ju");
+        aMap.put("ジョ", "jo");
+        aMap.put("ティ", "ti");
+        aMap.put("ディ", "di");
+        aMap.put("ツィ", "tsi");
+        aMap.put("ヂャ", "dya");
+        aMap.put("ヂュ", "dyu");
+        aMap.put("ヂョ", "dyo");
+        aMap.put("ビャ", "bya");
+        aMap.put("ビュ", "byu");
+        aMap.put("ビョ", "byo");
+        aMap.put("ピャ", "pya");
+        aMap.put("ピュ", "pyu");
+        aMap.put("ピョ", "pyo");
+        aMap.put("ー", "-");
+
+        dictionary = Collections.unmodifiableMap(aMap);
     }
 
     public String convert(String s) {
         StringBuilder t = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             if (i <= s.length() - 2) {
-                if (m.containsKey(s.substring(i, i + 2))) {
-                    t.append(m.get(s.substring(i, i + 2)));
+                if (dictionary.containsKey(s.substring(i, i + 2))) {
+                    t.append(dictionary.get(s.substring(i, i + 2)));
                     i++;
-                } else if (m.containsKey(s.substring(i, i + 1))) {
-                    t.append(m.get(s.substring(i, i + 1)));
+                } else if (dictionary.containsKey(s.substring(i, i + 1))) {
+                    t.append(dictionary.get(s.substring(i, i + 1)));
                 } else if (s.charAt(i) == 'ッ') {
-                    t.append(m.get(s.substring(i + 1, i + 2)).charAt(0));
+                    t.append(dictionary.get(s.substring(i + 1, i + 2)).charAt(0));
                 } else {
                     t.append(s.charAt(i));
                 }
             } else {
-                if (m.containsKey(s.substring(i, i + 1))) {
-                    t.append(m.get(s.substring(i, i + 1)));
+                if (dictionary.containsKey(s.substring(i, i + 1))) {
+                    t.append(dictionary.get(s.substring(i, i + 1)));
                 } else {
                     t.append(s.charAt(i));
                 }
             }
         }
         return t.toString();
+    }
+
+    public static Map<String, String> getDictionary() {
+        return dictionary;
     }
 
 }
