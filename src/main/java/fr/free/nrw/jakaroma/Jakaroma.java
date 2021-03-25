@@ -61,7 +61,7 @@ public class Jakaroma {
             }
             // keep newlines unaltered
             if (token.getAllFeaturesArray()[0].equals("記号")) {
-                buffer.append(token.getSurface()); // Append surface form
+                buffer.append(kanaToRomaji.convert(token.getSurface())); // Append surface form
                 continue;
             }
 
@@ -69,7 +69,7 @@ public class Jakaroma {
                 case "数": // Example: 4
                 case "アルファベット": // Example: ｂ (double-width alphabet)
                 case "サ変接続": // Example: , (connection symbols)
-                    buffer.append(token.getSurface());  // TODO - exception list for when this false positives
+                    buffer.append(kanaToRomaji.convert(token.getSurface()));  // TODO - exception list for when this false positives
                     continue; // avoid extra whitespace after symbols
                 default:
                     String romaji;
