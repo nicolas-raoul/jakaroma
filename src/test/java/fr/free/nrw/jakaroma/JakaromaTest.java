@@ -36,7 +36,7 @@ public class JakaromaTest {
         Assert.assertEquals("Sakuya", instance.convert(testInput[1], false, true));
         Assert.assertEquals("Shousho", instance.convert(testInput[2], false, true));
         Assert.assertEquals("Shoujiki", instance.convert(testInput[3], false, true));
-        Assert.assertEquals("miNichikan", instance.convert(testInput[4], false, true));
+        Assert.assertEquals("三Nichikan", instance.convert(testInput[4], false, true));
         Assert.assertEquals("Junchou", instance.convert(testInput[5], false, true));
         Assert.assertEquals("Nini", instance.convert(testInput[6], false, true));
         Assert.assertEquals("Tsume", instance.convert(testInput[7], false, true));
@@ -47,12 +47,12 @@ public class JakaromaTest {
         Assert.assertEquals("Jagaimo", instance.convert(testInput[12], false, true));
         Assert.assertEquals("Ninjin", instance.convert(testInput[13], false, true));
         Assert.assertEquals("Wa-furu", instance.convert(testInput[14], false, true));
-        Assert.assertEquals("Uefuァ", instance.convert(testInput[15], false, true));
-        Assert.assertEquals("Fuiripin", instance.convert(testInput[16], false, true));
+        Assert.assertEquals("Uェfuァ", instance.convert(testInput[15], false, true));
+        Assert.assertEquals("Firipin", instance.convert(testInput[16], false, true));
         Assert.assertEquals("Puraibashi-", instance.convert(testInput[17], false, true));
         Assert.assertEquals("Bacchiri", instance.convert(testInput[18], false, true));
         Assert.assertEquals("JunChan", instance.convert(testInput[19], false, true));
-        Assert.assertEquals("Yuusuke San No Motto- Ha \"Yes , We  Can \"To \"Uinburedon Ya Zennihon Taikai De Danjo Ryouhou Tomo Ga Katsu \"", instance.convert(testInput[20], true, true));
+        Assert.assertEquals("Yuusuke San No Motto- Ha \"Yes , We  Can \"To \"Uィnburedon Ya Zennihon Taikai De Danjo Ryouhou Tomo Ga Katsu \"", instance.convert(testInput[20], true, true));
         Assert.assertEquals(".;\"\"", instance.convert("。；「」", true, true));
     }
 

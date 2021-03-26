@@ -119,12 +119,17 @@ public class KanaToRomaji {
         aMap.put("ピュ", "pyu");
         aMap.put("ピョ", "pyo");
         aMap.put("ー", "-");
+        aMap.put("チェ", "che");
+        aMap.put("フィ", "fi");
+        aMap.put("フェ", "fe");
+        aMap.put("ウィ", "wi");
+        aMap.put("ウェ", "we");
+        aMap.put("ヴィ", "ⅴi");
+        aMap.put("ヴェ", "ve");
+
         aMap.put("「", "\"");
         aMap.put("」", "\"");
         aMap.put("。", ".");
-        aMap.put("三", "mi");
-        aMap.put("ィ", "i");
-        aMap.put("ェ", "e");
 
         dictionary = Collections.unmodifiableMap(aMap);
     }
