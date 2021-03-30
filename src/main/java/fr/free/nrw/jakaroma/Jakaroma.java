@@ -13,6 +13,7 @@ public class Jakaroma {
 
     /**
      * for those who use it from the command line
+     * @param args the strings to convert
      */
     public static void main(String... args) {
         String input;

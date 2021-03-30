@@ -26,7 +26,7 @@ Roppongi Hiruzu Mori Tawa-
 
 or just
 ```
-java -cp "target/jakaroma-1.0.0-SNAPSHOT-jar-with-dependencies.jar" fr.free.nrw.jakaroma.Jakaroma 六本木ヒルズ森タワー
+java -cp "target/jakaroma-1.0.0-jar-with-dependencies.jar" fr.free.nrw.jakaroma.Jakaroma 六本木ヒルズ森タワー
 Roppongi Hiruzu Mori Tawa-
 ```
 
