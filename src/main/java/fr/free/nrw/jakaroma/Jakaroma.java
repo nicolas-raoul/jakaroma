@@ -133,7 +133,9 @@ public class Jakaroma {
                 buffer.append(" ");
             }
         }
-        System.out.println(buffer);
+        if (DEBUG) {
+            System.out.println(buffer);
+        }
         return buffer.toString();
     }
 
