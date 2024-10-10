@@ -30,7 +30,8 @@ public class Jakaroma {
 
         Jakaroma instance = new Jakaroma();
         instance.isPronunciation = true;
-        instance.convert(input, true, true);
+        String result = instance.convert(input, true, true);
+        System.out.println(result);
     }
 
     /**
