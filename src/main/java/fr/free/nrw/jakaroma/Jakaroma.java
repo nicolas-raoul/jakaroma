@@ -10,6 +10,7 @@ public class Jakaroma {
 
     private static final boolean DEBUG = false;
     private boolean isPronunciation = false;
+    private Tokenizer tokenizer = new Tokenizer();
 
     /**
      * for those who use it from the command line
@@ -43,7 +44,6 @@ public class Jakaroma {
      * @return romaji representation
      */
     public String convert(String input, boolean trailingSpace, boolean capitalizeWords) {
-        Tokenizer tokenizer = new Tokenizer();
         List<Token> tokens = tokenizer.tokenize(halfWidthToFullWidth(input));
         int tokensSize = tokens.size();
         StringBuilder buffer = new StringBuilder();
