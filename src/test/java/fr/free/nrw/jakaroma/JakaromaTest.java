@@ -60,4 +60,12 @@ public class JakaromaTest {
     public void translateFullWidthToHalfWidth() {
         Assert.assertEquals("wifi", instance.convert("ｗｉｆｉ", false, false));
     }
+
+    @Test
+    public void translateOsmWay971134980() {
+        // see https://www.openstreetmap.org/way/971134980
+        String testInput = "キッッズスクール加古川つばめ保育園";
+
+        Assert.assertEquals("Kizzusuku-ruKakogawaTsubaMeHoikuen", instance.convert(testInput, false, true));
+    }
 }
