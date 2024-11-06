@@ -166,7 +166,7 @@ public class Jakaroma {
         String surface = token.getSurface();
 
         if (surface.contains("ッ") && !surface.endsWith("ッ")) {
-            String[] splitTokenSurface = surface.split("ッ");
+            String[] splitTokenSurface = surface.split("[ッ]+");
             String romaji1 = kanaToRomaji.convert(splitTokenSurface[0]);
             String romaji2 = kanaToRomaji.convert(splitTokenSurface[1]);
             buffer.append(romaji1).append(romaji2.charAt(0)).append(romaji2);
