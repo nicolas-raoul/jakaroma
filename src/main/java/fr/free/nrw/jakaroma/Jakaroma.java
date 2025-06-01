@@ -70,9 +70,6 @@ public class Jakaroma {
             switch (type) {
                 case "数": // Example: 4
                 case "アルファベット": // Example: ｂ (double-width alphabet)
-                case "サ変接続": // Example: , (connection symbols)
-                    buffer.append(kanaToRomaji.convert(token.getSurface()));  // TODO - exception list for when this false positives
-                    continue; // avoid extra whitespace after symbols
                 default:
                     String romaji;
                     // Kuromoji provided no katakana?

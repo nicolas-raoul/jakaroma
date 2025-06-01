@@ -37,10 +37,11 @@ public class JakaromaTest {
         "昨夜, Sakuya",
         "証書, Shousho",
         "正直, Shoujiki",
-        "三日間, 三Nichikan",
+        "三日間, SanNichikan",
         "順調, Junchou",
         "任意, Nini",
         "爪, Tsume",
+        "放送, Housou",
         "みっかかん, Mikkakan",
         "さっぱり, Sappari",
         "ばっちり, BacchiRi",
@@ -60,7 +61,7 @@ public class JakaromaTest {
 
     @ParameterizedTest
     @CsvSource({
-        "祐介さんのモットーは「ｙｅｓ，　ｗｅ　ｃａｎ」と「ウィンブレドンや全日本大会で男女両方ともが勝つ」, 'Yuusuke San No Motto- Ha \"Yes , We  Can \"To \"Uィnburedon Ya Zennihon Taikai De Danjo Ryouhou Tomo Ga Katsu \"'",
+        "祐介さんのモットーは「ｙｅｓ，　ｗｅ　ｃａｎ」と「ウィンブレドンや全日本大会で男女両方ともが勝つ」, 'Yuusuke San No Motto- Ha \"Yes ,  We  Can \"To \"Uィnburedon Ya Zennihon Taikai De Danjo Ryouhou Tomo Ga Katsu \"'",
         "。；「」, .;\"\""
     })
     public void andYetAnotherTranslate(String in, String out) {
